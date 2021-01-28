@@ -12,11 +12,12 @@ class SinglePerceptron():
         # The Loss Function is the square of difference of hypothesis and real Y
         # Use gradient descent algorithm when update the parameters
 
-        # For the first update model determine the size of input
+        # To construct the model, determine the input size of model
         if self.weight is None:
             try:
                 self.weight = np.random.randn(np.array(trainX).shape[1])
-            except IndexError:
+            except IndexError as e:
+                print(e)
                 print("The input data must be a matrix")
         if self.bias is None:
             self.bias = np.random.randn(1)
@@ -34,9 +35,10 @@ class SinglePerceptron():
             self.weight -= learning_rate * WeightGradient
             self.bias -= learning_rate * BiasGradient
 
-        except:
-            pass
+        except IndexError as e:
+            print(e)
 
+        # Calculate Loss
         Loss = np.mean(np.square(yHat - trainY))
 
         return Loss
@@ -76,3 +78,14 @@ if __name__ == "__main__":
     print("Loss at", _ , ":", Loss)    
     NN2.printWeight()
     print(NN2.predict(np.array([[4],[5]])))
+
+    # XOR problem
+    NN3 = SinglePerceptron()
+    trainX = np.array([[0,0],[0,1],[1,0],[1,1]])
+    trainY = np.array([0,1,1,0])
+
+    for _ in range(10000):
+        Loss = NN3.train(trainX, trainY)
+    print("Loss at", _ , ":", Loss)    
+    NN3.printWeight()
+    print(NN3.predict(trainX))
