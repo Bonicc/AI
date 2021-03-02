@@ -6,5 +6,9 @@ This is a respository for Machine Learning code
 - Libraries : [**Numpy**](https://numpy.org/)
 
 ## Code
-- [**SinglePerceptron**](https://github.com/Bonicc/Machine-Learning/blob/master/NeuralNetwork/SinglePerceptron.py) 	: Neural Network with only output layer (activation function not included, Loss function is MSE)
-- [**MultiPerceptron**](https://github.com/Bonicc/Machine-Learning/blob/master/NeuralNetwork/MultiPerceptron.py) 	: Neural Network with multi hidden layer and output layer
+
+|Machine|Details|Main|Remarks|
+|---|---|---|---|
+|SinglePerceptron| Neural Network with only output layer (Loss function is MSE)|Linear Regression, XOR problem||
+|MultiPerceptron| Neural Network with multi hidden layer and output layer|XOR problem, Mnist||
+|Q-Learning|Reinforcement Learning Method using the action value off-policy update|Path Finding to best exit when some of cells are hard to pass and on fire||
